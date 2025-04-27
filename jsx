@@ -22,7 +22,7 @@ export default function LabelDesigner() {
     const [fontSize, setFontSize] = useState(24);
     const [labelType, setLabelType] = useState('printed');
     const [fabricType, setFabricType] = useState('satin');
-    const [extras, setExtras] = useState({ zemindouble: false, ultrasonicCutting: false });
+    const [extras, setExtras] = useState({ standard:true, zemindouble: false, ultrasonicCutting: false });
     const [textAlignment, setTextAlignment] = useState('middle-center');
     const [selectedQuality, setSelectedQuality] = useState('standard');
     const [overlay, setOverlay] = useState({ show: false, message: '', onConfirm: null });
@@ -377,7 +377,6 @@ export default function LabelDesigner() {
     }, []);
 
     const calculatePrice = useCallback(() => {
-        // Settings'in varlığını kontrol et
         if (!window.cld_ajax_obj || !window.cld_ajax_obj.settings) {
             console.error('Settings not found:', window.cld_ajax_obj);
             return { total: '0.00', perPiece: '0.00' };
@@ -385,13 +384,13 @@ export default function LabelDesigner() {
 
         const settings = window.cld_ajax_obj.settings;
 
-        // Tüm fiyatları güvenli bir şekilde dönüştür
+        // Sayısal dönüşüm için güvenli fonksiyon
         const safeNumber = (value) => {
             const num = Number(value);
             return isNaN(num) ? 0 : num;
         };
 
-        // Boyuta göre temel fiyatı belirle
+        // Temel fiyat hesaplama
         let basePrice = 0;
         if (labelWidth === 50 && labelHeight === 19) {
             basePrice = safeNumber(settings.price_small);
@@ -401,7 +400,7 @@ export default function LabelDesigner() {
             basePrice = safeNumber(settings.price_large);
         }
 
-        // Kalite seçimine göre ek ücret
+        // Kalite ve diğer ücretler
         switch (selectedQuality) {
             case 'standard':
                 basePrice += safeNumber(settings.quality_standard_fee);
@@ -409,14 +408,11 @@ export default function LabelDesigner() {
             case 'premium':
                 basePrice += safeNumber(settings.quality_premium_fee);
                 break;
-            case 'eco':
-                // eco için ek ücret yok
-                break;
             default:
+                // Eco quality için ek ücret yok
                 break;
         }
 
-        // Diğer ücretleri ekle
         if (labelType === 'woven') {
             basePrice += safeNumber(settings.woven_extra_fee);
 
@@ -442,17 +438,42 @@ export default function LabelDesigner() {
                     basePrice += safeNumber(settings.fabric_organic_cotton_fee);
                     break;
                 default:
+                    // Varsayılan kumaş tipi için ek ücret yok
                     break;
             }
         }
 
-        // Debug için settings değerlerini konsola yazdır
-        console.log('Settings:', settings);
-        console.log('Calculated base price:', basePrice);
+        // Miktar bazlı indirim hesaplama
+        const getDiscountRate = () => {
+            // Mevcut miktara uygun en yüksek indirim oranını bul
+            const quantities = [500, 1000, 1500, 2000, 2500, 3000, 3500, 4000, 4500, 5000, 6000, 7000, 8000, 9000, 10000];
+            let applicableDiscount = 0;
+
+            // Miktarları büyükten küçüğe sırala ve ilk uygun indirimi bul
+            for (let i = quantities.length - 1; i >= 0; i--) {
+                if (quantity >= quantities[i]) {
+                    const discountKey = `quantity_${quantities[i]}_discount`;
+                    applicableDiscount = safeNumber(settings[discountKey]);
+                    break;
+                }
+            }
+
+            return applicableDiscount;
+        };
+
+        const discountRate = getDiscountRate();
+        console.log('Discount Rate:', discountRate, 'for quantity:', quantity); // Debug için
+
+        // İndirim uygula
+        const discountMultiplier = (100 - discountRate) / 100;
+        const finalPrice = basePrice * discountMultiplier;
+
+        console.log('Base Price:', basePrice, 'Final Price:', finalPrice); // Debug için
 
         return {
-            total: (quantity * basePrice).toFixed(2),
-            perPiece: basePrice.toFixed(2)
+            total: (quantity * finalPrice).toFixed(2),
+            perPiece: finalPrice.toFixed(2),
+            discountRate: discountRate // İndirim oranını da döndür
         };
     }, [labelWidth, labelHeight, applicationMethod, quantity, labelType, extras, fabricType, selectedQuality]);
 
@@ -1603,7 +1624,7 @@ export default function LabelDesigner() {
                                 onChange={e => setQuantity(Number(e.target.value))}
                                 disabled={loading}
                             >
-                                {[1000, 1500, 2000, 2500, 3000, 3500, 4000, 4500, 5000].map(q => (
+                                {[500, 1000, 1500, 2000, 2500, 3000, 3500, 4000, 4500, 5000, 6000, 7000, 8000, 9000, 10000].map(q => (
                                     <option key={q} value={q}>{q} pieces</option>
                                 ))}
                             </select>
