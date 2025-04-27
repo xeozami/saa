@@ -1491,14 +1491,16 @@ export default function LabelDesigner() {
 
                     {labelType === 'woven' && (
                         <>
+
+                            JavaScript
                             <div className="control-group">
                                 <div className="group-title">
                                     Application Method
                                     <span className="help-icon">?
-                                        <span className="tooltip">
-                                            Choose how the label will be attached: sew-on for traditional application or iron-on for heat application.
-                                        </span>
-                                    </span>
+            <span className="tooltip">
+                Choose how the label will be attached: sew-on for traditional application or iron-on for heat application.
+            </span>
+        </span>
                                 </div>
                                 <div className="application-options">
                                     <button
@@ -1506,9 +1508,16 @@ export default function LabelDesigner() {
                                         onClick={() => setApplicationMethod('sew-on')}
                                     >
                                         <div className="method-icon">
-                                            <svg viewBox="0 0 24 24">
-                                                <path d="M6 18 L12 6 M12 6 L18 18 M12 6 L12 12" stroke="currentColor" stroke-width="2" fill="none"/>
-                                                <circle cx="12" cy="12" r="2" stroke="currentColor" stroke-width="2" fill="none"/>
+                                            <svg
+                                                viewBox="0 0 512 512"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                style={{
+                                                    fill: 'currentColor',
+                                                    fillOpacity: 1,
+                                                    stroke: 'none'
+                                                }}
+                                            >
+                                                <path d="M415.532,200.021h-33.433l-17.997-0.768c-0.397-0.017-0.793-0.025-1.19-0.025h-44.985 c-7.593,0-13.772-6.178-13.772-13.772c0-7.593,6.179-13.771,13.772-13.771h86.768c38.302,0,69.464-31.161,69.464-69.463 c0-38.303-31.161-69.464-69.464-69.464H258.508C249.299,12.964,229.315,0,207.174,0c-15.981,0-31.29,6.803-42.001,18.663 c-3.829,4.24-6.941,9.005-9.304,14.096H65.687c-15.354,0-27.846,12.491-27.846,27.846s12.492,27.846,27.846,27.846h87.853 l42.174,413.037c0.511,5.906,5.519,10.512,11.459,10.512c5.941,0,10.949-4.606,11.459-10.512l30.988-303.483 c5.926,32.331,34.29,56.915,68.307,56.915h44.391l17.998,0.768c0.397,0.017,0.793,0.025,1.19,0.025h34.027 c1.509,0,2.935,1.427,2.935,2.936c0,1.509-1.427,2.935-2.935,2.935h-90.063c-34.691,0-62.914,28.223-62.914,62.914 s28.223,62.914,62.914,62.914h37.905c15.354,0,27.846-12.491,27.846-27.846s-12.492-27.846-27.846-27.846h-37.905 c-3.983,0-7.222-3.24-7.222-7.222c0-3.982,3.239-7.221,7.222-7.221h90.063c32.328,0,58.628-26.301,58.628-58.628 C474.159,226.323,447.859,200.021,415.532,200.021z M65.687,73.262c-6.98,0-12.657-5.678-12.657-12.657 c0-6.98,5.678-12.657,12.657-12.657h85.573c-0.733,4.725-0.88,9.56-0.387,14.394l1.115,10.921H65.687z M207.174,464.192 L165.983,60.798c-1.188-11.632,2.626-23.279,10.462-31.956c7.836-8.678,19.037-13.654,30.729-13.654 c13.673,0,26.226,6.755,33.862,17.57h-33.109c-15.355,0-27.846,12.491-27.846,27.846s12.491,27.846,27.846,27.846h37.614 L207.174,464.192z M415.532,302.088h-90.063c-12.357,0-22.41,10.053-22.41,22.409c0,12.358,10.054,22.41,22.41,22.41h37.905 c6.98,0,12.657,5.678,12.657,12.657s-5.678,12.657-12.657,12.657h-37.905c-26.315,0-47.725-21.409-47.725-47.725 s21.41-47.725,47.725-47.725h90.063c9.824,0,18.124-8.3,18.124-18.124c0-9.825-8.3-18.124-18.124-18.124h-34.027 c-0.179,0-0.358-0.003-0.54-0.011l-18.162-0.775c-0.107-0.004-0.216-0.007-0.323-0.007h-44.554 c-29.928,0-54.275-24.348-54.275-54.275c0-29.927,24.348-54.274,54.275-54.274h86.768c15.969,0,28.961-12.991,28.961-28.96 c0-15.969-12.991-28.961-28.961-28.961H253.954c-0.007,0-0.015,0-0.022,0h-46.007c-6.98,0-12.657-5.678-12.657-12.657 s5.678-12.657,12.657-12.657h196.77c29.928,0,54.275,24.348,54.275,54.275c0,29.927-24.348,54.274-54.275,54.274h-86.768 c-15.969,0-28.961,12.991-28.961,28.96c0,15.969,12.991,28.961,28.961,28.961h44.985c0.179,0,0.358,0.003,0.54,0.011l18.162,0.775 c0.107,0.004,0.216,0.007,0.323,0.007h33.595c23.953,0,43.439,19.486,43.439,43.439S439.484,302.088,415.532,302.088z M253.566,159.37l7.241-70.919h143.889c7.593,0,13.772,6.178,13.772,13.772c0,7.593-6.179,13.771-13.772,13.771h-86.768 C288.85,115.994,263.903,133.962,253.566,159.37z"/>
                                             </svg>
                                         </div>
                                         <div className="application-info">
@@ -1521,9 +1530,8 @@ export default function LabelDesigner() {
                                         onClick={() => setApplicationMethod('iron-on')}
                                     >
                                         <div className="method-icon">
-                                            <svg viewBox="0 0 24 24">
-                                                <path d="M4 16 L8 8 H16 L20 16 H4 Z" stroke="currentColor" stroke-width="2" fill="none"/>
-                                                <path d="M10 12 H14 M10 14 H14" stroke="currentColor" stroke-width="2" fill="none"/>
+                                            <svg fill="currentColor" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M55,24H16v2h39c2.2,0,4,1.8,4,4v7H33C13.7,37,3,45.2,3,60v1h58V30C61,26.7,58.3,24,55,24z M59,59H5c0.6-17.4,17.7-20,28-20 h26V59z"/>
                                             </svg>
                                         </div>
                                         <div className="application-info">
@@ -1538,19 +1546,23 @@ export default function LabelDesigner() {
                                 <div className="group-title">
                                     Extra Options
                                     <span className="help-icon">?
-                                        <span className="tooltip">
-                                            Additional options like double backing for durability or ultrasonic cutting for clean edges.
-                                        </span>
-                                    </span>
+            <span className="tooltip">
+                Additional options like double backing for durability or ultrasonic cutting for clean edges.
+            </span>
+        </span>
                                 </div>
                                 <div className="extras-options">
                                     <button
-                                        className={`extra-option-button standard ${!extras.zemindouble && !extras.ultrasonicCutting ? 'selected' : ''}`}
-                                        onClick={() => setExtras({ zemindouble: false, ultrasonicCutting: false })}
+                                        className={`extra-option-button standard ${(!extras.zemindouble && !extras.ultrasonicCutting) ? 'selected' : ''}`}
+                                        onClick={() => setExtras({
+                                            standard: true,
+                                            zemindouble: false,
+                                            ultrasonicCutting: false
+                                        })}
                                     >
                                         <div className="method-icon">
                                             <svg viewBox="0 0 24 24">
-                                                <path d="M4 12 L9 17 L20 6" stroke="currentColor" stroke-width="2" fill="none"/>
+                                                <path d="M4 12 L9 17 L20 6" stroke="currentColor" strokeWidth="2" fill="none"/>
                                             </svg>
                                         </div>
                                         <div className="extra-info">
@@ -1560,12 +1572,26 @@ export default function LabelDesigner() {
                                     </button>
                                     <button
                                         className={`extra-option-button double-back ${extras.zemindouble ? 'selected' : ''}`}
-                                        onClick={() => setExtras(prev => ({ ...prev, zemindouble: !prev.zemindouble, ultrasonicCutting: false }))}
+                                        onClick={() => {
+                                            if (extras.zemindouble && !extras.ultrasonicCutting) {
+                                                setExtras(prev => ({
+                                                    ...prev,
+                                                    standard: false,
+                                                    zemindouble: true
+                                                }));
+                                                return;
+                                            }
+                                            setExtras(prev => ({
+                                                ...prev,
+                                                standard: false,
+                                                zemindouble: !prev.zemindouble
+                                            }));
+                                        }}
                                     >
                                         <div className="method-icon">
-                                            <svg viewBox="0 0 24 24">
-                                                <rect x="4" y="6" width="14" height="12" rx="2" transform="rotate(-10 11 12)" stroke="currentColor" stroke-width="2" fill="none"/>
-                                                <rect x="6" y="6" width="14" height="12" rx="2" transform="rotate(10 13 12)" stroke="currentColor" stroke-width="2" fill="none"/>
+                                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <polyline points="10 18 12 16 14 18" style={{fill: 'none', stroke: 'currentColor', strokeLinecap: 'round', strokeLinejoin: 'round', strokeWidth: '1.5'}}/>
+                                                <path d="M18,11H6 M18,13H6 M12,16v5" style={{fill: 'none', stroke: 'currentColor', strokeLinecap: 'round', strokeLinejoin: 'round', strokeWidth: '1.5'}}/>
                                             </svg>
                                         </div>
                                         <div className="extra-info">
@@ -1575,12 +1601,31 @@ export default function LabelDesigner() {
                                     </button>
                                     <button
                                         className={`extra-option-button ultrasonic ${extras.ultrasonicCutting ? 'selected' : ''}`}
-                                        onClick={() => setExtras(prev => ({ ...prev, ultrasonicCutting: !prev.ultrasonicCutting, zemindouble: false }))}
+                                        onClick={() => {
+                                            if (extras.ultrasonicCutting && !extras.zemindouble) {
+                                                setExtras(prev => ({
+                                                    ...prev,
+                                                    standard: false,
+                                                    ultrasonicCutting: true
+                                                }));
+                                                return;
+                                            }
+                                            setExtras(prev => ({
+                                                ...prev,
+                                                standard: false,
+                                                ultrasonicCutting: !prev.ultrasonicCutting
+                                            }));
+                                        }}
                                     >
                                         <div className="method-icon">
-                                            <svg viewBox="0 0 24 24">
-                                                <path d="M6 8 A4 4 0 0 1 6 16 M4 6 A6 6 0 0 1 4 18" stroke="currentColor" stroke-width="2" fill="none"/>
-                                                <path d="M16 6 L20 18" stroke="currentColor" stroke-width="2" fill="none"/>
+                                            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M6 14V12C6 8.68629 8.68629 6 12 6H36C39.3137 6 42 8.68629 42 12V14" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/>
+                                                <path d="M32 18V30" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/>
+                                                <path d="M40 20V28" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/>
+                                                <path d="M24 15V33" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/>
+                                                <path d="M16 18V30" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/>
+                                                <path d="M8 20V28" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/>
+                                                <path d="M6 34V36C6 39.3137 8.68629 42 12 42H36C39.3137 42 42 39.3137 42 36V34" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/>
                                             </svg>
                                         </div>
                                         <div className="extra-info">
