@@ -375,22 +375,84 @@ export default function LabelDesigner() {
         }
         return { widthScale, heightScale };
     }, []);
+    const formatPrice = (price) => {
+        // price'ın sayı olduğundan emin ol
+        const numericPrice = Number(price);
+        if (isNaN(numericPrice)) {
+            console.error('Invalid price value:', price);
+            return '0.00'; // Hatalı fiyat durumunda fallback
+        }
+
+        if (!window.cld_ajax_obj) {
+            console.error('cld_ajax_obj not found in formatPrice - Cannot format price without currency settings');
+            return numericPrice.toFixed(2); // Para birimi sembolü olmadan döndür
+        }
+
+        const {
+            currency_symbol, // Varsayılan değer kaldırıldı
+            currency_position = 'left',
+            decimal_separator = '.',
+            thousand_separator = ',',
+            decimals = 2,
+        } = window.cld_ajax_obj;
+
+        // currency_symbol eksikse hata ver
+        if (!currency_symbol) {
+            console.error('currency_symbol is missing in cld_ajax_obj:', window.cld_ajax_obj);
+            return numericPrice.toFixed(2); // Para birimi sembolü olmadan döndür
+        }
+
+        console.log('formatPrice - window.cld_ajax_obj:', window.cld_ajax_obj);
+        console.log('formatPrice - currency_symbol:', currency_symbol);
+        console.log('formatPrice - currency_position:', currency_position);
+        console.log('formatPrice - decimal_separator:', decimal_separator);
+        console.log('formatPrice - thousand_separator:', thousand_separator);
+        console.log('formatPrice - decimals:', decimals);
+
+        // Fiyatı ondalık basamak sayısına göre yuvarla
+        const formattedPrice = numericPrice.toFixed(decimals);
+
+        // Ondalık ayracı dikkate alarak parçalara ayır
+        const parts = formattedPrice.split('.');
+        let integerPart = parts[0];
+        const decimalPart = parts[1] || '';
+
+        // Binlik ayracı ekle
+        const regex = /\B(?=(\d{3})+(?!\d))/g;
+        integerPart = integerPart.replace(regex, thousand_separator);
+
+        // Ondalık kısmı birleştir
+        const finalPrice = decimalPart ? `${integerPart}${decimal_separator}${decimalPart}` : integerPart;
+
+        console.log('formatPrice - finalPrice:', finalPrice);
+
+        switch (currency_position) {
+            case 'left':
+                return `${currency_symbol}${finalPrice}`;
+            case 'right':
+                return `${finalPrice}${currency_symbol}`;
+            case 'left_space':
+                return `${currency_symbol} ${finalPrice}`;
+            case 'right_space':
+                return `${finalPrice} ${currency_symbol}`;
+            default:
+                return `${currency_symbol}${finalPrice}`;
+        }
+    };
 
     const calculatePrice = useCallback(() => {
         if (!window.cld_ajax_obj || !window.cld_ajax_obj.settings) {
             console.error('Settings not found:', window.cld_ajax_obj);
-            return { total: '0.00', perPiece: '0.00' };
+            return { total: 0, perPiece: 0 };
         }
 
         const settings = window.cld_ajax_obj.settings;
 
-        // Sayısal dönüşüm için güvenli fonksiyon
         const safeNumber = (value) => {
             const num = Number(value);
             return isNaN(num) ? 0 : num;
         };
 
-        // Temel fiyat hesaplama
         let basePrice = 0;
         if (labelWidth === 50 && labelHeight === 19) {
             basePrice = safeNumber(settings.price_small);
@@ -400,7 +462,6 @@ export default function LabelDesigner() {
             basePrice = safeNumber(settings.price_large);
         }
 
-        // Kalite ve diğer ücretler
         switch (selectedQuality) {
             case 'standard':
                 basePrice += safeNumber(settings.quality_standard_fee);
@@ -409,17 +470,14 @@ export default function LabelDesigner() {
                 basePrice += safeNumber(settings.quality_premium_fee);
                 break;
             default:
-                // Eco quality için ek ücret yok
                 break;
         }
 
         if (labelType === 'woven') {
             basePrice += safeNumber(settings.woven_extra_fee);
-
             if (applicationMethod === 'iron-on') {
                 basePrice += safeNumber(settings.woven_iron_on_extra_fee);
             }
-
             if (extras.zemindouble) {
                 basePrice += safeNumber(settings.woven_zemin_double_fee);
             }
@@ -438,18 +496,14 @@ export default function LabelDesigner() {
                     basePrice += safeNumber(settings.fabric_organic_cotton_fee);
                     break;
                 default:
-                    // Varsayılan kumaş tipi için ek ücret yok
                     break;
             }
         }
 
-        // Miktar bazlı indirim hesaplama
         const getDiscountRate = () => {
-            // Mevcut miktara uygun en yüksek indirim oranını bul
             const quantities = [500, 1000, 1500, 2000, 2500, 3000, 3500, 4000, 4500, 5000, 6000, 7000, 8000, 9000, 10000];
             let applicableDiscount = 0;
 
-            // Miktarları büyükten küçüğe sırala ve ilk uygun indirimi bul
             for (let i = quantities.length - 1; i >= 0; i--) {
                 if (quantity >= quantities[i]) {
                     const discountKey = `quantity_${quantities[i]}_discount`;
@@ -462,18 +516,13 @@ export default function LabelDesigner() {
         };
 
         const discountRate = getDiscountRate();
-        console.log('Discount Rate:', discountRate, 'for quantity:', quantity); // Debug için
-
-        // İndirim uygula
         const discountMultiplier = (100 - discountRate) / 100;
         const finalPrice = basePrice * discountMultiplier;
 
-        console.log('Base Price:', basePrice, 'Final Price:', finalPrice); // Debug için
-
         return {
-            total: (quantity * finalPrice).toFixed(2),
-            perPiece: finalPrice.toFixed(2),
-            discountRate: discountRate // İndirim oranını da döndür
+            total: quantity * finalPrice, // Ham sayı olarak döndür
+            perPiece: finalPrice, // Ham sayı olarak döndür
+            discountRate: discountRate,
         };
     }, [labelWidth, labelHeight, applicationMethod, quantity, labelType, extras, fabricType, selectedQuality]);
 
@@ -1677,9 +1726,9 @@ export default function LabelDesigner() {
                         <div className="price-info">
                             <div className="total-price">
                                 <span>Total Price:</span>
-                                <span className="amount">${prices.total}</span>
+                                <span className="amount">{formatPrice(prices.total)}</span>
                             </div>
-                            <div className="price-per-piece">${prices.perPiece} per piece</div>
+                            <div className="price-per-piece">{formatPrice(prices.perPiece)} per piece</div>
                         </div>
                         <button
                             className={`add-to-cart-button ${loading ? 'loading' : ''}`}
