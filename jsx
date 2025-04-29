@@ -380,34 +380,27 @@ export default function LabelDesigner() {
         const numericPrice = Number(price);
         if (isNaN(numericPrice)) {
             console.error('Invalid price value:', price);
-            return '0.00'; // Hatalı fiyat durumunda fallback
+            return '0,00 €'; // Euro için varsayılan format
         }
 
-        if (!window.cld_ajax_obj) {
-            console.error('cld_ajax_obj not found in formatPrice - Cannot format price without currency settings');
-            return numericPrice.toFixed(2); // Para birimi sembolü olmadan döndür
-        }
+        // Avrupa formatı için varsayılan değerler
+        const defaultSettings = {
+            currency_symbol: '€',
+            currency_position: 'left_space', // Avrupa standardı
+            decimal_separator: ',', // Avrupa standardı
+            thousand_separator: '.', // Avrupa standardı
+            decimals: 2
+        };
 
+        // window.cld_ajax_obj'den ayarları al veya varsayılan değerleri kullan
+        const settings = window.cld_ajax_obj || defaultSettings;
         const {
-            currency_symbol, // Varsayılan değer kaldırıldı
-            currency_position = 'left',
-            decimal_separator = '.',
-            thousand_separator = ',',
-            decimals = 2,
-        } = window.cld_ajax_obj;
-
-        // currency_symbol eksikse hata ver
-        if (!currency_symbol) {
-            console.error('currency_symbol is missing in cld_ajax_obj:', window.cld_ajax_obj);
-            return numericPrice.toFixed(2); // Para birimi sembolü olmadan döndür
-        }
-
-        console.log('formatPrice - window.cld_ajax_obj:', window.cld_ajax_obj);
-        console.log('formatPrice - currency_symbol:', currency_symbol);
-        console.log('formatPrice - currency_position:', currency_position);
-        console.log('formatPrice - decimal_separator:', decimal_separator);
-        console.log('formatPrice - thousand_separator:', thousand_separator);
-        console.log('formatPrice - decimals:', decimals);
+            currency_symbol = '€',
+            currency_position = 'left_space',
+            decimal_separator = ',',
+            thousand_separator = '.',
+            decimals = 2
+        } = settings;
 
         // Fiyatı ondalık basamak sayısına göre yuvarla
         const formattedPrice = numericPrice.toFixed(decimals);
@@ -424,8 +417,7 @@ export default function LabelDesigner() {
         // Ondalık kısmı birleştir
         const finalPrice = decimalPart ? `${integerPart}${decimal_separator}${decimalPart}` : integerPart;
 
-        console.log('formatPrice - finalPrice:', finalPrice);
-
+        // Para birimi sembolünü pozisyona göre ekle (varsayılan olarak sağda boşlukla)
         switch (currency_position) {
             case 'left':
                 return `${currency_symbol}${finalPrice}`;
@@ -434,9 +426,8 @@ export default function LabelDesigner() {
             case 'left_space':
                 return `${currency_symbol} ${finalPrice}`;
             case 'right_space':
-                return `${finalPrice} ${currency_symbol}`;
             default:
-                return `${currency_symbol}${finalPrice}`;
+                return `${finalPrice} ${currency_symbol}`; // Avrupa standardı
         }
     };
 
