@@ -1,19 +1,6 @@
 /* Import Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans:wght@400;700&family=Montserrat:wght@400;700&family=Poppins:wght@400;700&family=Inter:wght@400;700&family=Lato:wght@400;700&family=Rubik:wght@400;700&family=Work+Sans:wght@400;700&family=Nunito:wght@400;700&family=Source+Sans+3:wght@400;700&family=Barlow:wght@400;700&family=Public+Sans:wght@400;700&family=Playfair+Display:wght@400;700&family=Merriweather:wght@400;700&family=Lora:wght@400;700&family=Crimson+Pro:wght@400;700&family=Libre+Baskerville:wght@400;700&family=EB+Garamond:wght@400;700&family=Zilla+Slab:wght@400;700&family=Cardo:wght@400;700&family=Bitter:wght@400;700&family=PT+Serif:wght@400;700&family=Vollkorn:wght@400;700&family=Source+Serif+4:wght@400;700&family=Caveat:wght@400;700&family=Dancing+Script:wght@400;700&family=Patrick+Hand:wght@400&family=Indie+Flower:wght@400&family=Kalam:wght@400;700&family=Shadows+Into+Light:wght@400&family=Amatic+SC:wght@400;700&family=Architects+Daughter:wght@400&family=Gochi+Hand:wght@400&family=Annie+Use+Your+Telescope:wght@400&family=Coming+Soon:wght@400&family=Nothing+You+Could+Do:wght@400&family=Bebas+Neue:wght@400&family=Oswald:wght@400;700&family=Lobster:wght@400&family=Abril+Fatface:wght@400&family=Bangers:wght@400&family=Alfa+Slab+One:wght@400&family=Shrikhand:wght@400&family=Fredericka+the+Great:wght@400&family=Black+Han+Sans:wght@400&family=Big+Shoulders+Display:wght@400;700&family=Passion+One:wght@400&family=Rammetto+One:wght@400&family=Futura:wght@400;700&family=Manrope:wght@400;700&family=Overpass:wght@400;700&family=Jost:wght@400;700&family=Sora:wght@400;700&family=Outfit:wght@400;700&family=Chivo:wght@400;700&family=Karla:wght@400;700&family=Archivo:wght@400;700&family=DM+Sans:wght@400;700&family=Exo+2:wght@400;700&family=Cabin:wght@400;700&family=Special+Elite:wght@400&family=Old+Standard+TT:wght@400;700&family=Cinzel:wght@400;700&family=IM+Fell+English:wght@400&family=UnifrakturMaguntia:wght@400&family=Spectral:wght@400;700&family=Rye:wght@400&family=Almendra:wght@400;700&family=Pirata+One:wght@400&family=Metal+Mania:wght@400&family=Germania+One:wght@400&family=Caesar+Dressing:wght@400&family=Great+Vibes:wght@400&family=Sacramento:wght@400&family=Alex+Brush:wght@400&family=Kaushan+Script:wght@400&family=Parisienne:wght@400&family=Yellowtail:wght@400&family=Tangerine:wght@400;700&family=Clicker+Script:wght@400&family=Allura:wght@400&family=Bad+Script:wght@400&family=Lovers+Quarrel:wght@400&family=Cedarville+Cursive:wght@400&family=Fira+Code:wght@400;700&family=IBM+Plex+Mono:wght@400;700&family=Space+Mono:wght@400;700&family=Inconsolata:wght@400;700&family=Roboto+Mono:wght@400;700&family=Source+Code+Pro:wght@400;700&family=JetBrains+Mono:wght@400;700&family=Courier+Prime:wght@400;700&family=Overpass+Mono:wght@400;700&family=Ubuntu+Mono:wght@400;700&family=VT323:wght@400&family=Share+Tech+Mono:wght@400&display=swap');
 
-/* Fallback fonts */
-.text-sans-serif {
-  font-family: 'Roboto', Arial, Helvetica, sans-serif;
-}
-
-.text-serif {
-  font-family: 'Merriweather', 'Times New Roman', serif;
-}
-
-.text-monospace {
-  font-family: 'Fira Code', 'Courier New', monospace;
-}
-
 /* CSS Variables */
 :root {
   --primary-color: #0052CC;
@@ -148,7 +135,7 @@
   flex-direction: column;
   align-items: center;
   transition: all 0.2s ease;
-  height: 160px; /* Tüm butonlar için sabit yükseklik */
+  height: 160px;
   box-sizing: border-box;
   width: 100%;
 }
@@ -159,10 +146,10 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 80px; /* Tüm preview'lar için sabit yükseklik */
+  height: 80px;
   background: #f8f9fa;
   border-radius: 4px;
-  margin-bottom: 12px; /* Alt boşluğu artırdık */
+  margin-bottom: 12px;
   border: 1px dashed #D1D5DB;
   position: relative;
 }
@@ -198,7 +185,7 @@
   align-items: center;
   justify-content: center;
   gap: 4px;
-  height: 68px; /* Text alanı için sabit yükseklik */
+  height: 68px;
   text-align: center;
 }
 
@@ -223,7 +210,6 @@
   margin: 0;
   line-height: 1.2;
 }
-
 
 /* Text Input and Font Size Control */
 .text-control-wrapper {
@@ -889,7 +875,7 @@
 
 .alignment-preview {
   width: 100%;
-  height: 60px; /* Kanvas yüksekliğini artırıyoruz */
+  height: 60px;
   background: #F9FAFB;
   border: 1px dashed #D1D5DB;
   border-radius: 4px;
@@ -1334,7 +1320,7 @@
   align-items: center;
   padding-bottom: 2rem;
   border-bottom: 1px solid var(--border-color);
-  margin-bottom: 1rem; /* Added margin to create space between header and canvas */
+  margin-bottom: 1rem;
 }
 
 .preview-header::before {
@@ -1366,9 +1352,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 2rem 3rem; /* Sağ tarafta height-indicator için daha fazla alan */
+  padding: 2rem 3rem;
   position: relative;
-  margin-top: 10px; /* Üstteki width-indicator için alan */
+  margin-top: 10px;
 }
 
 .label-preview {
@@ -1589,7 +1575,7 @@
 
 .width-indicator {
   position: absolute;
-  top: -33px; /* Çizginin üstünde olması için */
+  top: -33px;
   left: 50%;
   transform: translateX(-50%);
   background: #E5E7EB;
@@ -1606,8 +1592,8 @@
   position: absolute;
   right: -107px;
   top: 33%;
-  transform: translateY(-50%) rotate(90deg); /* -90deg yerine 90deg yaptık */
-  transform-origin: left center; /* Merkez yerine sol taraftan döndürme */
+  transform: translateY(-50%) rotate(90deg);
+  transform-origin: left center;
   background: #E5E7EB;
   padding: 4px 8px;
   border-radius: 4px;
@@ -1632,7 +1618,7 @@
 }
 
 .height-line {
-  right: -55px; /* Sağa daha yakın */
+  right: -55px;
   top: 0;
   bottom: 0;
   width: 1px;
@@ -1734,18 +1720,23 @@
 .price-info {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0;
+  width: 100%; /* Tüm genişliği kaplar */
 }
 
 .total-price {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between; /* Total Price solda, fiyat sağda */
   font-size: 1.125rem;
   font-weight: 600;
   color: var(--text-primary);
+  width: 100%;
 }
 
 .price-per-piece {
+  display: flex; /* Flex container yapıyoruz */
+  justify-content: flex-end; /* İçeriği sağa hizalar */
+  width: 100%; /* Tam genişlik */
   font-size: 0.875rem;
   color: var(--text-secondary);
 }
@@ -1961,11 +1952,255 @@
   background-color: #218838;
 }
 
+/* Product Variations Section (From Previous Context) */
+.product-variations-container {
+  display: grid;
+  grid-template-columns: minmax(0, 4fr) minmax(400px, 1fr);
+  gap: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333;
+}
+
+.variations-left-column {
+  grid-column: 1 / 2;
+  padding: 20px;
+  background: linear-gradient(145deg, #f9f9f9, #f1f1f1);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.variation-set {
+  position: relative;
+  padding: 20px;
+  border: 1px solid #e8ecef;
+  border-radius: 8px;
+  background: #fff;
+  transition: background-color 0.3s ease;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.variation-set.removing {
+  animation: fadeOut 0.3s ease-in-out forwards;
+}
+
+.variation-set:first-child .remove-variation {
+  display: none;
+}
+
+.variation-set:hover {
+  background-color: #fafafa;
+}
+
+.variation-dropdowns {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 15px;
+  align-items: start;
+  width: 100%;
+}
+
+.dropdown-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.variation-select {
+  min-width: 100px;
+  width: 120px;
+  padding: 8px 30px 8px 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  background: white;
+  font-size: 14px;
+  font-weight: 400;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234b5563' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 1em;
+  transition: all 0.3s ease;
+}
+
+.variation-select:hover {
+  border-color: #3b82f6;
+  transform: scale(1.01);
+}
+
+.variation-select:focus {
+  border-color: #3b82f6;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+}
+
+.quantity-input {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.quantity-input:hover {
+  border-color: #3b82f6;
+  transform: scale(1.01);
+}
+
+.quantity-input:focus {
+  border-color: #3b82f6;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+}
+
+.variation-price {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0;
+  width: 100%;
+  min-width: 120px;
+  grid-column: 5 / 6;
+  align-self: start;
+}
+
+.variation-price .price-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+}
+
+.variation-price .price-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.variation-price .price-value {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.remove-variation {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 24px;
+  height: 24px;
+  background: #f8d7da;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.remove-variation:hover {
+  background: #f1aeb5;
+}
+
+.remove-variation svg {
+  width: 16px;
+  height: 16px;
+  fill: #dc3545;
+}
+
+.variations-right-column {
+  grid-column: 2 / 3;
+  padding: 20px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 20px;
+  height: fit-content;
+}
+
+.summary-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.summary-section h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0;
+}
+
+.summary-item {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.summary-item.total {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-primary);
+  border-top: 1px solid var(--border-color);
+  padding-top: 12px;
+  margin-top: 12px;
+}
+
+.add-variation {
+  margin-top: 16px;
+  padding: 10px 20px;
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.add-variation:hover {
+  background: var(--primary-hover);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; transform: translateY(0); }
+  to { opacity: 0; transform: translateY(-10px); }
+}
+
 /* Responsive Design */
+@media (max-width: 1400px) {
+  .designer-container {
+    max-width: 1200px;
+  }
+
+  .designer-controls {
+    flex: 0 0 450px;
+  }
+
+  .designer-canvas {
+    width: 550px;
+  }
+}
+
 @media (max-width: 1200px) {
   .designer-container {
     flex-direction: column;
-    gap: 1rem;
+    gap: 1.5rem;
   }
 
   .designer-controls {
@@ -1981,13 +2216,80 @@
   }
 
   .canvas-frame {
-    padding: 1rem;
+    padding: 1.5rem;
+  }
+
+  .product-variations-container {
+    grid-template-columns: 1fr;
+  }
+
+  .variations-right-column {
+    position: relative;
+    top: 0;
+  }
+}
+
+@media (max-width: 1024px) {
+  .label-designer-wrapper {
+    padding: 1.5rem;
+  }
+
+  .size-options,
+  .fabric-type-buttons,
+  .quality-options,
+  .frame-style-buttons,
+  .application-options,
+  .extras-options {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .icon-position-options {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .font-options-grid {
+    grid-template-columns: repeat(auto-fill, minmax(75px, 1fr));
+  }
+
+  .icon-options-grid {
+    grid-template-columns: repeat(auto-fill, minmax(35px, 1fr));
+  }
+
+  .color-palette {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .text-alignment-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .height-indicator {
+    right: -90px;
+  }
+
+  .variation-dropdowns {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .variation-price {
+    grid-column: 1 / 4;
+    align-self: start;
+  }
+
+  .variation-select,
+  .quantity-input {
+    width: 100%;
+    min-width: 100%;
   }
 }
 
 @media (max-width: 768px) {
   .label-designer-wrapper {
     padding: 1rem;
+  }
+
+  .control-group {
+    padding: 0.75rem;
   }
 
   .size-options,
@@ -2022,6 +2324,93 @@
   .height-indicator {
     right: -85px;
   }
+
+  .variation-dropdowns {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .variation-price {
+    grid-column: 1 / 3;
+  }
+
+  /* Mobil cihazlar için pozisyonlar */
+  .top-left .alignment-text {
+    top: 4px;
+    left: 4px;
+  }
+
+  .top-center .alignment-text {
+    top: 4px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .top-right .alignment-text {
+    top: 4px;
+    right: 4px;
+  }
+
+  .bottom-left .alignment-text {
+    bottom: 4px;
+    left: 4px;
+  }
+
+  .bottom-center .alignment-text {
+    bottom: 4px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .bottom-right .alignment-text {
+    bottom: 4px;
+    right: 4px;
+  }
+
+  .middle-left .alignment-text {
+    top: 50%;
+    left: 4px;
+    transform: translateY(-50%);
+  }
+
+  .middle-center .alignment-text {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .middle-right .alignment-text {
+    top: 50%;
+    right: 4px;
+    transform: translateY(-50%);
+  }
+
+  .alignment-preview {
+    height: 45px;
+  }
+
+  .alignment-button {
+    height: 65px;
+  }
+}
+
+@media (max-width: 600px) {
+  .variation-dropdowns {
+    grid-template-columns: 1fr;
+  }
+
+  .variation-price {
+    grid-column: 1 / 2;
+  }
+
+  .variation-select,
+  .quantity-input {
+    width: 100%;
+  }
+
+  .remove-variation {
+    top: 5px;
+    right: 5px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -2030,7 +2419,7 @@
   }
 
   .control-group {
-    padding: 0.75rem;
+    padding: 0.5rem;
   }
 
   .size-options,
@@ -2096,6 +2485,98 @@
     gap: 0.5rem;
     align-items: flex-start;
   }
+
+  .add-to-cart-button {
+    width: 100%;
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .color-palette {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .font-options-grid {
+    grid-template-columns: repeat(auto-fill, minmax(55px, 1fr));
+  }
+
+  .icon-options-grid {
+    grid-template-columns: repeat(auto-fill, minmax(28px, 1fr));
+  }
+
+  .height-indicator {
+    right: -65px;
+  }
+}
+
+/* iPad ve Tabletler için özel düzenlemeler */
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+  .designer-container {
+    max-width: 95%;
+  }
+
+  .size-options,
+  .fabric-type-buttons {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .font-options-grid {
+    grid-template-columns: repeat(auto-fill, minmax(75px, 1fr));
+  }
+
+  .canvas-frame {
+    padding: 1.5rem;
+  }
+
+  .alignment-preview {
+    height: 50px;
+  }
+
+  .alignment-button {
+    height: 70px;
+  }
+}
+
+/* Yatay mod için düzenlemeler */
+@media (max-height: 600px) and (orientation: landscape) {
+  .designer-container {
+    flex-direction: row;
+    gap: 1rem;
+  }
+
+  .designer-controls {
+    max-height: 80vh;
+    overflow-y: auto;
+  }
+
+  .designer-canvas {
+    position: sticky;
+    top: 1rem;
+  }
+
+  .variation-dropdowns {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .variation-price {
+    grid-column: 4 / 5;
+  }
+}
+
+/* Safe area için düzenlemeler (iPhone X ve üzeri) */
+@supports (padding: max(0px)) {
+  .label-designer-wrapper {
+    padding-left: max(1rem, env(safe-area-inset-left));
+    padding-right: max(1rem, env(safe-area-inset-right));
+    padding-bottom: max(1rem, env(safe-area-inset-bottom));
+  }
+
+  .product-variations-container {
+    padding-left: max(24px, env(safe-area-inset-left));
+    padding-right: max(24px, env(safe-area-inset-right));
+    padding-bottom: max(24px, env(safe-area-inset-bottom));
+  }
 }
 
 /* Dokunmatik cihazlar için iyileştirmeler */
@@ -2116,181 +2597,26 @@
   .extra-option-button:hover,
   .alignment-button:hover,
   .position-button:hover,
-  .quality-button:hover {
+  .quality-button:hover,
+  .variation-select:hover,
+  .quantity-input:hover,
+  .add-variation:hover {
     transform: none;
     box-shadow: var(--shadow-sm);
   }
-}
 
-/* iPad için özel düzenlemeler */
-@media only screen and (min-width: 768px) and (max-width: 1024px) {
-  .designer-container {
-    max-width: 95%;
-  }
-
-  .size-options,
-  .fabric-type-buttons {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .font-options-grid {
-    grid-template-columns: repeat(auto-fill, minmax(75px, 1fr));
-  }
-
-  .canvas-frame {
-    padding: 1.5rem;
-  }
-}
-
-/* Yatay mod için düzenlemeler */
-@media (max-height: 600px) and (orientation: landscape) {
-  .designer-container {
-    flex-direction: row;
-    gap: 1rem;
-  }
-
-  .designer-controls {
-    max-height: 80vh;
-    overflow-y: auto;
-  }
-
-  .designer-canvas {
-    position: sticky;
-    top: 1rem;
-  }
-}
-
-/* Safe area için düzenlemeler (iPhone X ve üzeri) */
-@supports (padding: max(0px)) {
-  .label-designer-wrapper {
-    padding-left: max(1rem, env(safe-area-inset-left));
-    padding-right: max(1rem, env(safe-area-inset-right));
-    padding-bottom: max(1rem, env(safe-area-inset-bottom));
-  }
-}
-
-/* Temel alignment pozisyonları */
-.alignment-bar .alignment-text {
-  position: absolute;
-  font-size: 14px;
-  font-weight: 500;
-  color: #4B5563;
-}
-
-/* Desktop için pozisyonlar */
-@media screen and (min-width: 769px) {
-  .bottom-left .alignment-text {
-    top: 4px;
-    left: 4px;
-  }
-
-  .bottom-center .alignment-text {
-    top: 4px;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-
-  .bottom-right .alignment-text {
-    top: 4px;
-    right: 4px;
-  }
-
-  .top-left .alignment-text {
-    bottom: 4px;
-    left: 4px;
-  }
-
-  .top-center .alignment-text {
-    bottom: 4px;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-
-  .top-right .alignment-text {
-    bottom: 4px;
-    right: 4px;
-  }
-}
-
-/* Mobil cihazlar için pozisyonlar */
-@media screen and (max-width: 768px) {
-  /* Top pozisyonları */
-  .top-left .alignment-text {
-    top: 4px;
-    left: 4px;
-  }
-
-  .top-center .alignment-text {
-    top: 4px;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-
-  .top-right .alignment-text {
-    top: 4px;
-    right: 4px;
-  }
-
-  /* Bottom pozisyonları */
-  .bottom-left .alignment-text {
-    bottom: 4px;
-    left: 4px;
-  }
-
-  .bottom-center .alignment-text {
-    bottom: 4px;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-
-  .bottom-right .alignment-text {
-    bottom: 4px;
-    right: 4px;
-  }
-
-  /* Middle pozisyonları (mobilde de aynı kalabilir) */
-  .middle-left .alignment-text {
-    top: 50%;
-    left: 4px;
-    transform: translateY(-50%);
-  }
-
-  .middle-center .alignment-text {
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-
-  .middle-right .alignment-text {
-    top: 50%;
-    right: 4px;
-    transform: translateY(-50%);
-  }
-
-  /* Mobil için ek düzenlemeler */
-  .alignment-preview {
-    height: 45px; /* Mobilde biraz daha küçük */
-  }
-
-  .alignment-button {
-    height: 65px; /* Mobilde biraz daha küçük */
-  }
-}
-
-/* Tablet için özel düzenlemeler */
-@media screen and (min-width: 769px) and (max-width: 1024px) {
-  .alignment-preview {
-    height: 50px;
-  }
-
-  .alignment-button {
-    height: 70px;
-  }
-}
-
-/* Touch cihazlar için ek optimizasyonlar */
-@media (hover: none) {
-  .alignment-button {
+  .alignment-button,
+  .size-option,
+  .label-type-button,
+  .frame-button,
+  .fabric-type-button,
+  .application-button,
+  .extra-option-button,
+  .font-option,
+  .icon-option,
+  .position-button,
+  .color-swatch,
+  .quality-button {
     touch-action: manipulation;
     -webkit-tap-highlight-color: transparent;
   }
